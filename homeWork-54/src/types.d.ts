@@ -7,3 +7,8 @@ export interface Cell {
     item:Item;
     onClick: () => void;
 }
+
+export interface Board {
+    items:Item[];
+    onCellClick: (index:number) => void;
+}
