@@ -24,7 +24,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -33,6 +32,11 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+}
+
+p {
+  text-align: center;
 }
 
 button {
@@ -65,4 +69,34 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.cell.item {
+  background-color: green;
+}
+
+.cell.noItem {
+  background-color: red;
+}
+
+.board {
+  margin: 0 auto;
+  width: 350px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.reset-button {
+  display: block;
+  margin: 20px auto 0;
 }
