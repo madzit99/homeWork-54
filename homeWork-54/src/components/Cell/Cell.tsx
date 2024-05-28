@@ -1,8 +1,8 @@
 import { Cell } from "../../types";
 
-const Cell:React.FC<Cell> = ({item, onClick}) => {
+const Cell:React.FC<Cell> = ({item, onClick, gameOver}) => {
     const handleClick = () => {
-        if (!item.clicked) {
+        if (!item.clicked && !gameOver) {
             onClick()
         }
     }

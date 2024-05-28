@@ -10,15 +10,16 @@ function App() {
         hasItem: false,
         clicked:false,
       });
-    }
+    };
 
     const indexRandom = Math.floor(Math.random() * items.length);
     items[indexRandom].hasItem = true;
     return items;
-  }
+  };
 
   const [cells, setCells] = useState<Item[]>(createCells());
   const [attempts, setAttempts] = useState<number>(0);
+  const [gameOver, setGameOver] = useState<boolean>(false);
 
   const handleCellClick = (index: number) => {
   if (!cells[index].clicked) {
@@ -30,13 +31,15 @@ function App() {
     setCells(newCells);
     if (newCell.hasItem) {
       alert("Игра окончена");
-    }
-  }
+      setGameOver(true);
+    };
+  };
 };
 
 const handleReset = (): void => {
     setCells(createCells());
     setAttempts(0);
+    setGameOver(false);
   };
 
 
@@ -44,7 +47,7 @@ const handleReset = (): void => {
     <>
     <div className='game'>
       <h1>Игра</h1>
-      <Board items={cells} onCellClick={handleCellClick} />
+      <Board items={cells} onCellClick={handleCellClick} isGameOver={gameOver}/>
       <p>Попыток: {attempts}</p>
       <button className="reset-button" onClick={handleReset}>
         Сбросить игру
@@ -52,6 +55,5 @@ const handleReset = (): void => {
     </div>
     </>
   );
-}
-
-export default App
+};
+export default App;
